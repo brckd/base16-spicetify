@@ -3,6 +3,9 @@ name: "Build template and commit theme updates"
 on:
   push
 
+permissions:
+  contents: write
+
 jobs:
   run:
     runs-on: "ubuntu-latest"
