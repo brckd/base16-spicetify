@@ -1,0 +1,19 @@
+name: "Build template and commit theme updates"
+
+on:
+  push
+
+jobs:
+  run:
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: "Fetch the repository code"
+        uses: "actions/checkout@v4"
+
+      - name: "Update schemes"
+        uses: "tinted-theming/tinted-builder-rust@latest"
+
+      - name: "Commit the changes, if any"
+        uses: "stefanzweifel/git-auto-commit-action@v5"
+        with:
+          commit_message: "Update with the latest tinted-theming colorschemes"
